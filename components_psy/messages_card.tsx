@@ -2,11 +2,12 @@
 import "flowbite";
 import Link from "next/link";
 
-export default function Message(
+export default function Message({
     image,
     pacient_name,
     message,
     date
+}  
 ) {
   return (
         <div className="flex flex-col gap-4 w-full">
