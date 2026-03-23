@@ -3,7 +3,7 @@
 import Navbar from "@/components_psy/navbar";
 import { useState, useEffect } from "react";
 import { apiFetch } from "../../../lib/api";
-import { Message } from "@/components_psy/messages_card";
+import  Message  from "@/components_psy/messages_card";
 import Chat from "@/components_web/Chat/chat";
 
 export default function Home() {
