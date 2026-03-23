@@ -54,7 +54,7 @@ export default function Home() {
                 >
                   <Message
                     image={consult.url_profile}
-                    pacient_name={consult.pacient_name}
+                    psy_name={consult.psy_name}
                     message={consult.last_message}
                     date={consult.date}
                   />
