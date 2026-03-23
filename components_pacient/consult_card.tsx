@@ -1,11 +1,14 @@
 "use client";
+import "flowbite";
 
 export default function Consult_Card({ 
     type,
     reason, 
     psy, 
     date, 
-    time}){
+    time
+}
+){
 
     return(
         <div className="w-60  bg-[#152144] text-white p-5 rounded-xl shadow-xl flex flex-col gap-3">
