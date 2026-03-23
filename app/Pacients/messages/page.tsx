@@ -6,6 +6,7 @@ import Consult_Card from "@/components_pacient/consult_card";
 import {useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch } from "../../../lib/api"; 
+import { io } from "socket.io-client";
 
 export default function Messages() {
 
@@ -52,7 +53,7 @@ export default function Messages() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-      reason: reason,
+          reason: reason,
           type: type,
           notes: notes,
           gender_pref: gender,
@@ -80,17 +81,7 @@ export default function Messages() {
 
           <div className="w-full md:w-1/2 flex flex-col">
 
-            {/* <div className="w-full flex justify-end mb-5">
-              <button
-                onClick={() => setOpenModal(true)}
-                className="flex items-center gap-2 text-white lg:text-lg bg-gradient-to-br from-purple-600 to-blue-500 
-                          hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 
-                          dark:focus:ring-blue-800 font-medium rounded-xl text-sm px-3 py-3"
-              >
-                <CirclePlus size={20} />
-              </button>
-
-            </div> */}
+           
              
             <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-70 ">
 

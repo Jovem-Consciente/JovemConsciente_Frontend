@@ -73,7 +73,7 @@ export default function Login() {
         </div>
 
         <h1 className="text-2xl font-extrabold text-center text-blue-800 dark:text-white mb-6">
-          Login
+        
         </h1>
 
         <form onSubmit={handleVerifyCredentials} className="flex flex-col items-center space-y-6">

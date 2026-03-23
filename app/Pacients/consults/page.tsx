@@ -52,7 +52,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-      reason: reason,
+          reason: reason,
           type: type,
           notes: notes,
           gender_pref: gender,
