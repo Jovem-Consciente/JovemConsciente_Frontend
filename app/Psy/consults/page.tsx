@@ -85,7 +85,7 @@ export default function Home() {
                 ) : (
                   consults.map((consult) => (
                     <Consult_Card
-                      key={consult.id}
+                      
                       id={consult.id}
                       type={consult.type}
                       reason={consult.reason}

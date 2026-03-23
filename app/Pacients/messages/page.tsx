@@ -93,7 +93,7 @@ export default function Messages() {
                 ) : (
                   consults.map((consult) => (
                     <Consult_Card
-                      
+                      key={consult.id}
                       type={consult.type}
                       reason={consult.reason}
                       psy={consult.psy_name}

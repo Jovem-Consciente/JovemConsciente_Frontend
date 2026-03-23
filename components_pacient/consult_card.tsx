@@ -2,6 +2,7 @@
 import "flowbite";
 
 export default function Consult_Card({ 
+    id,
     type,
     reason, 
     psy, 
