@@ -38,7 +38,7 @@ export default function Signup() {
       formData.append("name", name);
       formData.append("phone", phone);
       formData.append("address", address);
-      formData.append("password", password.join("")); // junta os dígitos do PIN
+      formData.append("password", password.join("")); 
       formData.append("role", role);
       formData.append("gender", gender);
 
@@ -50,7 +50,7 @@ export default function Signup() {
 
       try {
         const res = await apiFetch("/auth/register", { method: "POST", body: formData });
-        // sucesso
+        
         router.push("/Login");
         } catch (err: any) {
             setError(err.message || "Erro ao criar conta");
@@ -169,7 +169,7 @@ export default function Signup() {
 
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-5">
             Já tens uma conta?{" "}
-            <Link href="/(auth)/Login" className="text-blue-700 hover:underline font-medium dark:text-blue-400">
+            <Link href="/Login" className="text-blue-700 hover:underline font-medium dark:text-blue-400">
               Clique aqui
             </Link>
           </p>

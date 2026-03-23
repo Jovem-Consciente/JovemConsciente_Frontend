@@ -1,6 +1,6 @@
 export async function apiFetch(endpoint: string, options: RequestInit = {}) {
   const res = await fetch(`http://localhost:3000${endpoint}`, {
-    credentials: "include", // 🔥 ENVIA COOKIE
+    credentials: "include", // ENVIA COOKIE
     ...options,
   });
 

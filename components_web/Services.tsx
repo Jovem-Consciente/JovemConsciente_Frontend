@@ -7,8 +7,8 @@ export default function Services(){
             <div className="w-full flex justify-center md:justify-start">
                 <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
             </div>
-            <div className="justify-self-center mt-5">
-                <h1 className=" text-4xl font-semibold text-heading">Serviços</h1>
+            <div className="">
+                <h1 className=" text-4xl font-semibold text-heading align-self-center">Serviços</h1>
                     
             </div>
 
