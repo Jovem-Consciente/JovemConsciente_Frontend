@@ -24,7 +24,7 @@ export default function Login() {
     try {
       const formData = new FormData();
       formData.append("email", email);
-      formData.append("password", password); /
+      formData.append("password", password);
 
       try {
         const data = await apiFetch("/auth/login", { method: "POST", body: formData });
