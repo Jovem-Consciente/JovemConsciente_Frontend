@@ -9,6 +9,14 @@ export default function Table({
     type,
     date,
     time
+}:{
+  url_profile:string;
+  pacient_name: string;
+  pacient_email: string;
+  reason: string;
+  type: string;
+  date: string;
+  time: string;
 }
     
 ) {
