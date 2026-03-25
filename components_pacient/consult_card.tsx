@@ -8,8 +8,15 @@ export default function Consult_Card({
     psy, 
     date, 
     time
-}
-){
+}: {
+  id: number;
+  type: string;
+  reason: string;
+  psy: string;
+  date: string;
+  time: string;
+}) {
+
 
     return(
         <div className="w-60  bg-[#152144] text-white p-5 rounded-xl shadow-xl flex flex-col gap-3">
