@@ -30,6 +30,7 @@ export default function Login() {
         const data = await apiFetch("/auth/login", { method: "POST", body: formData });
         
         if (data.user.role === "Pacient") {
+          console.log(data.user.id);
           router.push("/Pacients/consults");
         } else if (data.user.role === "Psy") {
           router.push("/Psy/consults");

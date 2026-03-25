@@ -17,7 +17,8 @@ export default function Signup() {
   const [file, setFile] = useState<File | null>(null);
   const [role] = useState("Pacient")
 
-  const [password, setPassword] = useState(["", "", "", "", "", ""]);
+  const [password, setPassword] = useState("");
+  const [confirm_password, setConf_Password] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -26,8 +27,8 @@ export default function Signup() {
     setLoading(true);
     setError("");
 
-    if (password.some((c) => c === "")) {
-      setError("Preencha todos os dígitos do código de acesso");
+    if (password != confirm_password) {
+      setError("As palavas-passe não conscidem.");
       setLoading(false);
       return;
     }
@@ -38,7 +39,7 @@ export default function Signup() {
       formData.append("name", name);
       formData.append("phone", phone);
       formData.append("address", address);
-      formData.append("password", password.join("")); 
+      formData.append("password", password); 
       formData.append("role", role);
       formData.append("gender", gender);
 
@@ -63,15 +64,7 @@ export default function Signup() {
     }
   }
 
-  function handleCodeChange(value: string, index: number) {
-    if (!/^\d?$/.test(value)) return;
-    const newCode = [...password];
-    newCode[index] = value;
-    setPassword(newCode);
 
-    const next = document.getElementById(`code-${index + 1}`);
-    if (value && next) (next as HTMLInputElement).focus();
-  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 dark:from-gray-800 dark:to-gray-900 px-4">
@@ -145,20 +138,27 @@ export default function Signup() {
           </div>
 
           <div className="mb-5 mt-5">
-            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código de Acesso</label>
-            <div className="flex justify-center space-x-2">
-              {password.map((digit, i) => (
-                <input
-                  key={i}
-                  id={`code-${i}`}
-                  maxLength={1}
-                  type="password"
-                  value={digit}
-                  onChange={(e) => handleCodeChange(e.target.value, i)}
-                  className="w-10 h-10 text-center text-lg border rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                />
-              ))}
-            </div>
+            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Palavra-passe</label>
+            <input
+              type="password"
+              required
+               placeholder="*********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full h-12 px-4 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            />
+          </div>
+
+          <div className="mb-5 mt-5">
+            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar Palavra-passe</label>
+            <input
+              type="password"
+              required
+              placeholder="**********"
+              value={confirm_password}
+              onChange={(e) => setConf_Password(e.target.value)}
+              className="w-full h-12 px-4 text-sm border rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            />
           </div>
 
           {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
