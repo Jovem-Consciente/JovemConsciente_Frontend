@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-export default function Chat({ consultationId }) {
+export default function Chat( consultationId : number) {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
     const socketRef = useRef(null);
@@ -21,7 +21,7 @@ export default function Chat({ consultationId }) {
         // entrar na sala da consulta
         socket.emit("joinConsultation", { consultationId });
 
-        // ouvir mensagens
+        
         socket.on("newMessage", (message) => {
             setMessages((prev) => [...prev, message]);
         });
