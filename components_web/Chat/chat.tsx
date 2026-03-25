@@ -3,7 +3,10 @@
 import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-export default function Chat( consultationId : number) {
+type ChatProps = {
+  consultationId: number;
+};
+export default function Chat( { consultationId }: ChatProps) {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
     const socketRef = useRef(null);

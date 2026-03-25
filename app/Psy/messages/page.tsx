@@ -64,10 +64,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 🔵 CHAT */}
+        
         <div className="w-full md:w-2/3">
           {selectedConsult ? (
-            <Chat consultationId={selectedConsult.id} />
+            <Chat consultationId={selectedConsult.id as number} />
           ) : (
             <div className="h-full flex items-center justify-center text-gray-400">
               Selecione uma consulta para iniciar o chat
