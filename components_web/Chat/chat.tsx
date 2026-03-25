@@ -1,17 +1,25 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { io } from "socket.io-client";
+import { io, Socket } from "socket.io-client";
+
+
 
 type ChatProps = {
   consultationId: number;
 };
-export default function Chat( { consultationId }: ChatProps) {
-    const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState("");
-    const socketRef = useRef(null);
 
-    // 🔌 conectar socket
+type Message = {
+  content: string;
+  sender_role: "pacient" | "psy";
+};
+
+export default function Chat( { consultationId }: ChatProps) {
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [newMessage, setNewMessage] = useState("");
+    const socketRef = useRef<Socket | null>(null);
+
+    
     useEffect(() => {
         socketRef.current = io("http://localhost:3000", {
             auth: {
@@ -21,11 +29,11 @@ export default function Chat( { consultationId }: ChatProps) {
 
         const socket = socketRef.current;
 
-        // entrar na sala da consulta
+       
         socket.emit("joinConsultation", { consultationId });
 
         
-        socket.on("newMessage", (message) => {
+        socket.on("newMessage", (message: Message) => {
             setMessages((prev) => [...prev, message]);
         });
 
@@ -50,12 +58,12 @@ export default function Chat( { consultationId }: ChatProps) {
     }, [consultationId]);
 
     // 📤 enviar mensagem
-    const handleSend = (e) => {
+    const handleSend = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (!newMessage.trim()) return;
 
-        socketRef.current.emit("sendMessage", {
+       socketRef.current?.emit("sendMessage", {
             consultationId,
             content: newMessage
         });
