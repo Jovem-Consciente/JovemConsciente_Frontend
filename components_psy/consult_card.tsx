@@ -17,7 +17,7 @@ export default function Consult_Card({
   time: string;
 }) {
 
-  async function handleConfirm(id_cons) {
+  async function handleConfirm(id_cons: number) {
     console.log("funcionando");
     await apiFetch(`/psy/assum_consult/${id_cons}`, {
       method: "PUT",
