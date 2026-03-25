@@ -8,6 +8,13 @@ export default function Consult_Card({
   psy, 
   date, 
   time
+}: {
+  id: number;
+  type: string;
+  reason: string;
+  psy: string;
+  date: string;
+  time: string;
 }) {
 
   async function handleConfirm(id_cons) {

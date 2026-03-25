@@ -7,6 +7,11 @@ export default function Message({
     psy_name,
     message,
     date
+}:{
+    image: string;
+    psy_name: string;
+    message: string;
+    date: string;
 }
    
 ) {

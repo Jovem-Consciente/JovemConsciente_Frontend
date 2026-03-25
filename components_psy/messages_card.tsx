@@ -7,7 +7,12 @@ export default function Message({
     pacient_name,
     message,
     date
-}  
+} :{
+    image: string;
+    pacient_name: string;
+    message: string;
+    date: string;
+} 
 ) {
   return (
         <div className="flex flex-col gap-4 w-full">
