@@ -15,9 +15,11 @@ export default function Home() {
     try {
       const data = await apiFetch("/psy/list_myconsults");
       setMy_consults(data);
+      console.log(data);
     } catch (err: any) {
       setError(err.message);
     }
+    
   }
 
   useEffect(() => {
@@ -28,12 +30,12 @@ export default function Home() {
     <div className="px-3 py-20">
       <Navbar />
 
-      <div className="w-full flex flex-col md:flex-row gap-4">
+      <div className="w-full flex flex-col md:flex-row gap-4 mt-20">
 
-        {/* 🟣 LISTA DE CONSULTAS */}
+       
         <div className="w-full md:w-1/3 bg-[#0F1A2A] rounded-xl p-4">
           <h2 className="text-xl font-bold text-indigo-400 mb-4">
-            Minhas Consultas
+            Minhas Conversas
           </h2>
 
           <div className="space-y-3">
@@ -42,21 +44,22 @@ export default function Home() {
                 Nenhuma consulta disponível
               </p>
             ) : (
-              my_consults.map((consult) => (
+              my_consults.map((my_consult) => (
                 <div
-                  key={consult.id}
-                  onClick={() => setSelectedConsult(consult)}
+                  key={my_consult.id}
+                  onClick={() => setSelectedConsult(my_consult)}
                   className={`cursor-pointer p-2 rounded-lg transition ${
-                    selectedConsult?.id === consult.id
+                    selectedConsult?.id === my_consult.id
                       ? "bg-purple-700"
                       : "hover:bg-gray-800"
                   }`}
                 >
                   <Message
-                    image={consult.url_profile}
-                    pacient_name={consult.psy_name}
-                    message={consult.last_message}
-                    date={consult.date}
+                    id={my_consult.id}
+                    image={my_consult.url_profile}
+                    pacient_name={my_consult.pacient_name}
+                    message={my_consult.last_message}
+                    date={my_consult.date}
                   />
                 </div>
               ))

@@ -42,7 +42,7 @@ export default function Table({
             <th className="px-6 py-4 font-medium text-white whitespace-nowrap">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-semibold">
-                  <img className="w-10 h-10 rounded-full" src={url_profile} alt="image"/>
+                  <img className="w-10 h-10 rounded-full" src={ url_profile || "/images/users/default_user.png"} alt="image"/>
                 </div>
                 <div>
                   <div className="font-semibold">{pacient_name}</div>

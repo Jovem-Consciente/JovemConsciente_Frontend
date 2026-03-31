@@ -3,11 +3,13 @@ import "flowbite";
 import Link from "next/link";
 
 export default function Message({
+    id,
     image,
     pacient_name,
     message,
     date
 } :{
+    id:number;
     image: string;
     pacient_name: string;
     message: string;
@@ -24,14 +26,14 @@ export default function Message({
                 >
                 <div className="flex items-center gap-4 bg-[#0F1A2A] p-4 rounded-xl shadow-lg">
                     <img
-                    src={image}
+                    src={image || "/images/users/default_user.png"}
                     alt="Avatar"
                     className="w-12 h-12 rounded-full object-cover"
                     />
                     <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white">Paciente: {pacient_name}</h3>
-                    <p className="text-gray-300 text-sm truncate">
-                        {message}
+                    <h3 className="text-lg font-semibold text-white">{pacient_name}</h3>
+                    <p className="text-gray-300 text-sm truncate italic">
+                        {message || "Sem nenhuma conversa, toque para iniciar"}
                     </p>
                     </div>
                     <span className="text-xs text-gray-400">{date}</span>

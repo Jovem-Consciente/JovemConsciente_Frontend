@@ -8,13 +8,12 @@ export default function Services(){
                 <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
             </div>
             <div className="">
-                <h1 className=" text-4xl font-semibold text-heading align-self-center">Serviços</h1>
-                    
+                <h1 className=" text-4xl font-semibold text-heading align-self-center">Serviços</h1>   
             </div>
 
-            <div className="flex flex-row justify-center md:justify-start items-center gap-5 mt-15 mb-25  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-15 mb-25 ml-10">
                 <div className="bg-[#111827] block max-w-sm p-5 rounded-xl shadow-md shadow-purple-800 ">
-                   <a href="#">
+                    <a href="#">
                         <img className="rounded-base" src="/images/carousel/img_4.jpg" alt="" />
                     </a>
                     <a href="#">

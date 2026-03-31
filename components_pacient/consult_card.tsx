@@ -17,7 +17,7 @@ export default function Consult_Card({
   time: string;
 }) {
 
-
+    console.log(psy)
     return(
         <div className="w-60  bg-[#152144] text-white p-5 rounded-xl shadow-xl flex flex-col gap-3">
                  {/* <Icon className="w-8 h-8 text-blue-400" /> */}
@@ -26,7 +26,7 @@ export default function Consult_Card({
 
                 <div className="space-y-1">
                     <p className="text-sm opacity-80">
-                        <strong>Psicologo: </strong> <span className="font-medium">{psy}</span>
+                        <strong>Psicologo: </strong> <span className="font-medium">{psy || "A definir..."}</span>
                     </p>
                     <p className="text-sm opacity-80">
                         <strong>Tipo de Consulta: </strong><span className="font-medium">{type}</span>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
+import { apiFetch } from "@/lib/api";
 
 
 
@@ -14,11 +15,38 @@ type Message = {
   sender_role: "pacient" | "psy";
 };
 
+ type UserData = {
+  email: string;
+  name: string;
+  phone: string;
+  photo_profile: string;
+};
+
+
 export default function Chat( { consultationId }: ChatProps) {
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState("");
     const socketRef = useRef<Socket | null>(null);
+    const [user_data, setUser_data] = useState<UserData | null>(null);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
 
+    async function loadUser() {
+          try {
+            console.log(consultationId);
+            const data = await apiFetch(`/auth/get_data_chat/${consultationId}`);
+            console.log(consultationId);
+            setUser_data(data);
+          } catch (err: any) {
+            setError(err.message);
+          } finally {
+            setLoading(false);
+          }
+        }
+      
+        useEffect(() => {
+          loadUser();
+    }, []);
     
     useEffect(() => {
         socketRef.current = io("http://localhost:3000", {
@@ -57,7 +85,7 @@ export default function Chat( { consultationId }: ChatProps) {
         }
     }, [consultationId]);
 
-    // 📤 enviar mensagem
+   
     const handleSend = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -79,7 +107,7 @@ export default function Chat( { consultationId }: ChatProps) {
                     <div className="flex items-center space-x-3">
                         <img src="/images/users/user5.jpg" className="h-7" />
                         <span className="text-xl text-white font-semibold">
-                            Consulta #{consultationId}
+                            {user_data?.name}
                         </span>
                     </div>
                 </div>
