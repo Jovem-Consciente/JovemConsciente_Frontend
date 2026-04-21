@@ -34,10 +34,10 @@ export default function Chat( { consultationId }: ChatProps) {
     async function loadUser() {
           try {
             console.log(consultationId);
-            const data = await apiFetch(`/auth/get_data_chat/${consultationId}`);
+            const data = await apiFetch(`/pacient/get_data_chat/${consultationId}`);
             console.log(consultationId);
             console.log(data);
-            setUser_data(data.pacient);
+            setUser_data(data.psy);
           } catch (err: any) {
             setError(err.message);
           } finally {
@@ -45,46 +45,75 @@ export default function Chat( { consultationId }: ChatProps) {
           }
         }
       
-        useEffect(() => {
-          loadUser();
-    }, []);
-    
-    useEffect(() => {
-        socketRef.current = io("http://localhost:3000", {
-            auth: {
-                token: localStorage.getItem("token")
-            }
-        });
+     
+    async function loadMesseges() {
+        try {
+            const data_messages = await apiFetch(`/pacient/get_data_messeges/${consultationId}`);
+            setMessages(data_messages);
+            console.log(data_messages);
+        } catch (error: any) {
+            setError(error.message);
+        }finally{
+            setLoading(false);
+        }
+    }
 
-        const socket = socketRef.current;
+    async function openSocket() {
+        try {
+            console.log("testando se funciona");
+            const socket = io("http://localhost:3000");
+            socket.on("connect", () =>{
+                console.log("User conectado", socket.id);
+            });
+        } catch (error: any) {
+            setError(error.message);
+        }
+        
+    }
+
+    useEffect(() => {
+        openSocket();
+        loadUser();                              
+        loadMesseges();
+    }, []);
+
+    
+    // useEffect(() => {
+    //     socketRef.current = io("http://localhost:3000", {
+    //         auth: {
+    //             token: localStorage.getItem("token")
+    //         }
+    //     });
+
+    //     const socket = socketRef.current;
 
        
-        socket.emit("joinConsultation", { consultationId });
+    //     socket.emit("joinConsultation", { consultationId });
 
         
-        socket.on("newMessage", (message: Message) => {
-            setMessages((prev) => [...prev, message]);
-        });
+    //     socket.on("newMessage", (message: Message) => {
+    //         setMessages((prev) => [...prev, message]);
+    //     });
 
-        return () => {
-            socket.disconnect();
-        };
-    }, [consultationId]);
+    //     return () => {
+    //         socket.disconnect();
+    //     };
+    // }, [consultationId]);
 
     
-    useEffect(() => {
-        async function fetchMessages() {
-            const res = await fetch(
-                `http://localhost:3000/api/messages/${consultationId}`
-            );
-            const data = await res.json();
-            setMessages(data);
-        }
+    // useEffect(() => {
+    //     async function fetchMessages() {
+    //         const res = await fetch(
+    //             `http://localhost:3000/api/messages/${consultationId}`
+    //         );
+    //         const data = await res.json();
+    //         setMessages(data);
+    //     }
 
-        if (consultationId) {
-            fetchMessages();
-        }
-    }, [consultationId]);
+    //     if (consultationId) {
+    //         fetchMessages();
+    //     }
+    // }, [consultationId]);
 
    
     const handleSend = (e: React.FormEvent) => {
@@ -108,7 +137,7 @@ export default function Chat( { consultationId }: ChatProps) {
                     <>
                         <div className="flex items-center justify-between p-4">
                             <div className="flex items-center space-x-3">
-                                <img src="/images/users/user5.jpg" className="h-7" />
+                                <img src={user_data?.photo_profile || "/images/users/default_user.png"} className="h-7" />
                                 <span className="text-xl text-white font-semibold">
                                     {user_data?.name}
                                 </span>

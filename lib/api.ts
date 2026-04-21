@@ -1,6 +1,9 @@
+const api = process.env.NEXT_PUBLIC_API_URL;
+
 export async function apiFetch(endpoint: string, options: RequestInit = {}) {
-  const res = await fetch(`http://localhost:3000${endpoint}`, {
-    credentials: "include", // ENVIA COOKIE
+
+  const res = await fetch( api + `${endpoint}`, {
+    credentials: "include", 
     ...options,
   });
 
