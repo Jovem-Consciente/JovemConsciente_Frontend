@@ -13,7 +13,7 @@ export default function Home() {
 
   async function loadConsults() {
     try {
-      const data = await apiFetch("/pacient/list_consults");
+      const data = await apiFetch("/pacient/list_my_consults");
       setMy_consults(data);
       console.log(data);
     } catch (err: any) {

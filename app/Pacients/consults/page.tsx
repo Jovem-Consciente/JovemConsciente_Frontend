@@ -26,7 +26,7 @@ export default function Home() {
 
   async function loadConsults() {
       try {
-        const data = await apiFetch("/pacient/list_consults");
+        const data = await apiFetch("/pacient/list_my_consults");
         setConsults(data);
       } catch (err: any) {
         setError(err.message);

@@ -21,7 +21,7 @@ export default function Home() {
   async function loadConsults() {
       try {
         const data_consult = await apiFetch("/psy/list_consults");
-        const data_myconsult = await apiFetch("/psy/list_myconsults");
+        const data_myconsult = await apiFetch("/psy/list_my_consults");
         setConsults(data_consult);
         setMy_consults(data_myconsult);
       } catch (err: any) {

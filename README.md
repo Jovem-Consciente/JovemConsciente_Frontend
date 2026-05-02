@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Jovem consciente - Frontend
 
-## Getting Started
+Esta aplicação, foi desenvolvida no âmbito do projecto Hackathon que tem como objectivo facilitar as consultas psicologas, dando a psicologos e pacientes um ambiente confortável e acessivel paa consultas em tempo real.
 
-First, run the development server:
+## funcionalidades
+1. registo de pacientes e psicologos
+2. autenticação
+3. marcação de consultas
+4. confirmação de consultas
+5. visualização de consultas agendadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Layout
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Registo de Pacientes e Psicologos(./images/imagem2.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Registo de Pacientes e Psicologos(./images/imagem1.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Autenticação de Pacientes e Psicologos(./images/autenticao.png)
 
-## Learn More
+![visualização e agendamento de consultas(./images/visualizacao_agendamento.png)
 
-To learn more about Next.js, take a look at the following resources:
+![visualização e agendamento de consultas(./images/consultas_psy.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Conversas Pacientes(./images/conversas.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
