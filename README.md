@@ -19,8 +19,6 @@ Esta aplicação, foi desenvolvida no âmbito do projecto Hackathon que tem como
 
 ![visualização e agendamento de consultas](./public/images/layout/visualizacao_agendamento.png)
 
-![visualização e agendamento de consultas](./public/images/layout/consults_psy.png)
-
 ![Conversas Pacientes](./public/images/layout/conversas.png)
 
 
