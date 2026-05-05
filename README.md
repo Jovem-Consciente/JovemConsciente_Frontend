@@ -11,16 +11,16 @@ Esta aplicação, foi desenvolvida no âmbito do projecto Hackathon que tem como
 
 ## Layout
 
-![Registo de Pacientes e Psicologos](./public/images/layout/imagem2.png)
+![Pagina Inicial](./public/images/layout/imagem2.png)
 
 ![Registo de Pacientes e Psicologos](./public/images/layout/registo.png)
 
-![Autenticação de Pacientes e Psicologos](./public/images/layout/autenticao.png)
+![Autenticação de Pacientes e Psicologos](./public/images/layout/autenticacao.png)
 
 ![visualização e agendamento de consultas](./public/images/layout/visualizacao_agendamento.png)
 
 ![visualização e agendamento de consultas](./public/images/layout/consults_psy.png)
 
-![Conversas Pacientes](./public/images/conversas_psy.png)
+![Conversas Pacientes](./public/images/layout/conversas.png)
 
 
