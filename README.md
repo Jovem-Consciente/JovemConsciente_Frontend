@@ -11,7 +11,7 @@ Esta aplicação, foi desenvolvida no âmbito do projecto Hackathon que tem como
 
 ## Layout
 
-![Registo de Pacientes e Psicologos(./images/layout/imagem2.png)
+![Registo de Pacientes e Psicologos(/images/layout/imagem2.png)
 
 ![Registo de Pacientes e Psicologos(./images/layout/imagem1.png)
 
